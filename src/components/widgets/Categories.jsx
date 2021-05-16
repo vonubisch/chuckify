@@ -11,7 +11,7 @@ const Categories = ({ data, onClick }) => {
       {data.map((category) => (
         <li key={category.name} className="inline">
           <button 
-            className={`py-1 px-3 mb-2 shadow-md no-underline rounded-full bg-${category.color} font-semibold focus:outline-none active:shadow-none mx-1`}
+            className={`py-1 px-3 mb-2 shadow-md no-underline rounded-full bg-${category.color} hover:bg-white hover:text-${category.color} font-semibold focus:outline-none active:shadow-none mx-1`}
             onClick={() => onClick(category.name)}
           >
             {category.name}
