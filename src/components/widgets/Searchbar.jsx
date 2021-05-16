@@ -32,7 +32,7 @@ const Searchbar = ({ onSubmit, results }) => {
             placeholder="Search a Chuck Norris quote..." 
           />
           {results > 1 ?
-            <span className={`block w-24 h-7 text-center rounded-lg text-xs font-bold bg-gray-300 leading-0 absolute top-2 pt-1.5 text-gray-600 ${bid.isRTL ? 'left-12' : 'right-12'}`}>
+            <span className={`block w-24 h-7 text-center rounded-lg text-xs font-bold bg-gray-300 leading-0 absolute top-1.5 pt-1.5 text-gray-600 ${bid.isRTL ? 'left-12' : 'right-12'}`}>
               {results} found
             </span>
             : null
