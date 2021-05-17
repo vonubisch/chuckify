@@ -6,7 +6,7 @@ import { BidirectionalityContext } from '../providers/BidirectionalityProvider';
 const Author = ({ name, description, facebookURL, instagramURL, twitterURL }) => {
   const bid = useContext(BidirectionalityContext);
   return (
-    <div className="container mx-auto w-f mt-10 lg:px-60">
+    <div className="container mx-auto w-f mt-10 lg:px-64 xl:px-96">
       <div className="bg-gray-900 rounded-xl py-5  pb-7 shadow-lg relative overflow-hidden px-5 md:px-10">
         <img src="img/logo.png" alt="Chuckify logo" className="rounded-full w-12 md:w-20 shadow-xl absolute mt-2" />
         <div className={`${bid.isRTL ? 'pr-16 md:pr-32' : 'pl-16 md:pl-32'}`}>
