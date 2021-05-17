@@ -1,11 +1,9 @@
 /// <reference types="cypress" />
 
-import { BASE_URL } from '../constants';
-
 context('Navigation', () => {
   
   beforeEach(() => {
-    cy.visit(BASE_URL);
+    cy.visit('/');
     cy.get('#header a[href*="credits"]').as('navItem');
   });
   
