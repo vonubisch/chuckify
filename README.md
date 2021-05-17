@@ -41,6 +41,7 @@ yarn start
 - ESLint - https://eslint.org
 - Firebase Hosting https://console.firebase.google.com
 - Github - https://github.com
+- Cypress - https://www.cypress.io
 
 ## Research
 ### New technologies researched

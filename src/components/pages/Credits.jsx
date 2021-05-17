@@ -15,6 +15,7 @@ const data = [
   { name: 'ESLint', description: 'Pretty code', url: 'https://eslint.org', icon: 'https://eslint.org/assets/img/favicon.512x512.png' },
   { name: 'Firebase Hosting', description: 'Hosting', url: 'https://console.firebase.google.com', icon: 'https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/favicon.ico' },
   { name: 'GitHub', description: 'Version control', url: 'https://github.com', icon: 'https://github.githubassets.com/favicons/favicon.png' },
+  { name: 'Cypress', description: 'Testing', url: 'https://www.cypress.io', icon: 'https://www.cypress.io/icons/icon-48x48.png' }
 ];
 
 const Credits = () => {
