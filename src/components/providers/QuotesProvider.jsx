@@ -3,30 +3,33 @@ import PropTypes from 'prop-types';
 
 const QuotesProvider = ({ children }) => {
 
-  const [alert, setAlert] = useState(null);
   const [quotes, setQuotes] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const hasNextItem = (quotes && quotes.length > 0 && (quotes.length - 1) > activeIndex);
+  const hasNext = (quotes && quotes.length > 0 && (quotes.length - 1) > activeIndex);
   const quote = quotes[activeIndex] && quotes[activeIndex];
+
+  const getNext = () => hasNext && setActiveIndex(activeIndex + 1);
+
+  const setData = (data, i = 0) => {
+    setQuotes(data);
+    setActiveIndex(i);
+  }
   
   return (
     <QuotesContext.Provider 
       value={{
-        activeIndex,
-        setActiveIndex,
         quote, 
         quotes,
-        setQuotes,
-        alert,
-        setAlert,
-        hasNextItem,
+        hasNext,
+        getNext,
+        setData,
       }}
     >
       {children}
     </QuotesContext.Provider>
   );
-  
+
 };
 
 QuotesProvider.propTypes = {

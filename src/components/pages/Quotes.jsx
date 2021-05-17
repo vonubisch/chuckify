@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import Quote from '../widgets/Quote';
 import Author from '../widgets/Author';
@@ -16,45 +16,43 @@ import api from '../../api';
 const ROUTE_QUOTES = '/';
 
 const Quotes = () => {
-
-  const { quote, quotes, setQuotes, activeIndex, setActiveIndex, hasNextItem, alert, setAlert } = useContext(QuotesContext);
+  
+  const [alert, setAlert] = useState(null);
+  
+  const { setData, quote, quotes, getNext, hasNext} = useContext(QuotesContext);
   const categories = useContext(CategoriesContext);
+  
+  const { get, source, isCancel } = api(); // Create API instance and get cancel-able source
 
-  const getRandomQuote = () => {
-    return api.random().then(r => {
-      setQuotes([r.data]);
-      setActiveIndex(0);
-    });
-  }
+  // Event handlers
+  const onSuccess = ({ data }) => setData([ data ]);
+  const onFail = e => !isCancel(e) && setAlert('Connection to API lost'); // Check if request is not manually canceled, otherwise display error
+  
+  // Get a random quote
+  const getRandom = () => get('random').then(onSuccess).catch(onFail);
 
-  const getRandomQuoteFromCategory = (category) => {
-    return api.randomCategory(category).then(r => {
-      setQuotes([r.data]);
-      setActiveIndex(0);
-    });
-  }
+  // Get a random quote from a category
+  const getFromCategory = (category) => get(`random?category=${category}`).then(onSuccess).catch(onFail);
 
+  // Search for a quote
   const searchQuote = (query) => {
     if (query.length < 3) {
       return setAlert('Minimum of 3 characters')
     }
-    return api.search(query).then(r => {
-      if (!r.data || !r.data.total) {
+    return get(`search?query=${query}`).then(({ data: { total, result } }) => {
+      if (!result || !total) {
         setAlert(`Nothing matched '${query}', so we generated a random quote..`);
-        return getRandomQuote();
+        return getRandom();
       }
-      setQuotes(r.data.result);
-      setActiveIndex(0);
-    });
-  }
-
-  const getNextQuote = () => {
-    if (!hasNextItem) return;
-    setActiveIndex(activeIndex + 1);
+      setData(result);
+    }).catch(onFail);
   }
 
   useEffect(() => {
-    getRandomQuote();
+    getRandom(); // Initially fetch random quote
+    return () => {
+      source.cancel(); // Clear up any pending API calls
+    };
   }, []);
 
   return (
@@ -69,7 +67,7 @@ const Quotes = () => {
         : 
         <Categories
           data={categories}
-          onClick={getRandomQuoteFromCategory}
+          onClick={getFromCategory}
         />
       }
       
@@ -77,11 +75,11 @@ const Quotes = () => {
 
       <div className="text-center mt-5 flex justify-center md:flex-reverse">
         <RandomButton 
-          onClick={getRandomQuote} 
-          prominent={!hasNextItem}
+          onClick={getRandom} 
+          prominent={!hasNext}
         />
-        {hasNextItem ?
-          <NextButton onClick={getNextQuote} />
+        {hasNext ?
+          <NextButton onClick={getNext} />
           : null
         }
       </div>
