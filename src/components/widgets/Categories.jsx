@@ -7,7 +7,7 @@ const Categories = ({ data, onClick }) => {
     return null;
 
   return (
-    <ul className="justify-center my-2 select-none text-center text-white font-sans text-sm md:px-32 h-10 md:h-full overflow-scroll md:overflow-auto whitespace-nowrap md:whitespace-normal">
+    <ul id="categories" className="justify-center my-2 select-none text-center text-white font-sans text-sm md:px-32 h-10 md:h-full overflow-scroll md:overflow-auto whitespace-nowrap md:whitespace-normal">
       {data.map((category) => (
         <li key={category.name} className="inline">
           <button 

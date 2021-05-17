@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
 
 const Quote = ({ value }) => (
-  <div className="w-full mx-auto rounded-xl bg-gray-200 shadow-lg p-10 text-gray-800 relative overflow-hidden min-w-80 max-w-3xl mt-5 h-50 direction-ltr">
+  <div id="quote" className="w-full mx-auto rounded-xl bg-gray-200 shadow-lg p-10 text-gray-800 relative overflow-hidden min-w-80 max-w-3xl mt-5 h-50 direction-ltr" data-value={value}>
     
     {value ? // If the quote is true-ish, display it
       <div className="relative mt-1">
         <div className="w-full mb-10">
           <div className="text-gray-400 text-left leading-tight h-8"><i className="material-icons text-xl md:text-6xl ">format_quote</i></div>
-          <div className="text-lg md:text-xl text-gray-600 font-medium px-5 md:px-20 italic ">
+          <div className="text-lg md:text-xl text-gray-600 font-medium px-5 md:px-20 italic">
             <Typewriter
               options={{
                 cursor: ' █',

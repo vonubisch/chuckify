@@ -39,7 +39,7 @@ const Header = ({ location: { pathname } }) => {
       ))}
 
       {/* RTL/LTR control */}
-      <a href="#" onClick={() => bid.toggle()} className={`hover:text-white cursor-pointer absolute mt-1 ${bid.isRTL ? 'left-4' : 'right-3'}`}>
+      <a href="#" id="button-bidirectionality" onClick={() => bid.toggle()} className={`hover:text-white cursor-pointer absolute mt-1 ${bid.isRTL ? 'left-4' : 'right-3'}`}>
         <span className="font-medium">
           <i className={`material-icons ${bid.isRTL ? '' : 'icon-flip'}`}>segment</i> 
         </span>
