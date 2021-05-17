@@ -5,6 +5,7 @@ module.exports = {
       safelist: {
         standard: [
           /^text-/,
+          /^hover:text-/,
           /^bg-/
         ]
       }
