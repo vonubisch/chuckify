@@ -1,4 +1,5 @@
 # Chuckify
+[![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 
 ## Live demo
 View a live demo: https://vu-chuckify.web.app
