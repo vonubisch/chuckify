@@ -14,7 +14,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "deploy": "craco build && firebase deploy --only hosting"
+    "deploy": "craco build && firebase deploy --only hosting",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@craco/craco": "^6.1.2",
     "autoprefixer": "^9.8.6",
+    "cypress": "^7.3.0",
     "eslint": "^7.26.0",
     "eslint-plugin-react": "^7.23.2",
     "postcss": "^7.0.35",
