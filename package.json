@@ -13,9 +13,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
-    "deploy": "craco build && firebase deploy --only hosting",
-    "cypress:open": "cypress open"
+    "test": "cypress open",
+    "deploy": "craco build && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": [
