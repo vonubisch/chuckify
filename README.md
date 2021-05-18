@@ -27,6 +27,7 @@ yarn start
 - The rest of the interface is ready for further internationalization and translation
 
 ### Architecture
+- Bootstrapped with Create React App, more functionality like SSR would probably be overkill
 - Router, every webapp needs a router, so I've added the most simple one
 - As this is a simple app, most shared state is achieved with the Context API. For larger apps I would prefer Redux.
 - While keeping the amount of third-party packages to a minimum I've added an effect for the main purpose of the app, displaying a quote
