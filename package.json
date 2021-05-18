@@ -2,6 +2,8 @@
   "name": "chuckify",
   "version": "0.1.0",
   "private": false,
+  "author": "Bjorn Stefan von Ubisch",
+  "license": "(MIT AND Artistic-2.0)",
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^17.0.2",
