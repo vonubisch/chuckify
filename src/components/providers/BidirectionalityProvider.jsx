@@ -1,9 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import PropTypes from 'prop-types';
 
-const defaultValue = 'ltr';
-
-const BidirectionalityProvider = ({ children }) => {
+const BidirectionalityProvider = ({ children, defaultValue }) => {
 
   const [ value, setValue ] = useState(defaultValue);
 
@@ -27,8 +25,13 @@ const BidirectionalityProvider = ({ children }) => {
 };
 
 BidirectionalityProvider.propTypes = {
+  defaultValue: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
+BidirectionalityProvider.defaultProps = {
+  defaultValue: 'ltr',
+}
 
 export default BidirectionalityProvider;
 export const BidirectionalityContext = createContext();
