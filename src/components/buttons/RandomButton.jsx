@@ -22,6 +22,7 @@ RandomButton.propTypes = {
 };
 
 RandomButton.defaultProps = {
+  onClick: e => e,
   prominent: false,
 };
 
